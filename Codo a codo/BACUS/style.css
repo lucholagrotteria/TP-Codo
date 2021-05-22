@@ -1,0 +1,506 @@
+/*RESETS*/
+:root {                                   /*Colores grales*/
+    --first-color: #000;
+    --second-color: #fff;
+    --third-color:#a52a2a;
+    --first-backgroud-color: #000;
+    --second-background-color: #a52a2a;
+    --font: 'Newsreader', serif;
+    --max-width: 1200px;
+    --header-height: 9rem;
+}
+
+*,                                      
+*::after,
+*::before {
+    box-sizing: inherit;  
+}
+
+
+/*TAGS PRINCIPALES*/
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    scroll-behavior: smooth; 
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100%;
+  background-image: url(img/prueba2.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--first-color);
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(4,auto);
+  grid-template-areas: 
+  "header header header header header "
+  "main main main main main"
+  "main main main main main"
+  "footer footer footer footer footer";
+}
+
+
+/*HEADER*/
+
+.header {
+  grid-area: header;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  padding: 1rem;
+  width: 100%;
+  height: var(--header-height);
+  background-color:var(--first-color);
+}
+
+/*NAVEGADOR*/
+
+.navbar {
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--first-backgroud-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.navbar a {
+  padding: 1rem;
+  font: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Newsreader', serif; 
+}
+
+.navbar a:hover{
+  color: var(--second-color);
+  background-color: var(--second-background-color);
+}
+
+.navbar.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*CONTENIDO PRINCIPAL*/
+
+.main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  align-items: center ;
+  width: 100%;  
+  height: 100%;
+  /* margin-top: 5rem; */
+}
+
+.words{
+  width:90%;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+
+/*MAIN DE VINOS/CERVEZAS/COMIDAS*/
+
+.container{
+  margin: 10rem 1rem;
+}
+
+.card{
+  margin: 2rem;
+}
+
+
+/*MAIN DEL CONTACTO*/
+
+.container-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  text-align: center;
+  color: var(--third-color);
+  margin-top: 9.5rem;
+  width: 90vw;
+}
+
+.container-form iframe{
+  margin: 2rem 1rem 4rem 1rem;
+}
+
+
+.miFormulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.miFormulario textarea{
+  height: 8rem;
+  margin-bottom: 1rem;
+  width: 80vw;
+}
+
+.miFormulario input{
+  padding: .5rem;
+  width: 90%;
+}
+
+.btns{
+  text-align: center;
+}
+
+.btns button{
+  border: none;
+  border-radius: .5rem;
+  width: 10rem;
+  margin: .5rem;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--first-color);
+  background-color: var(--second-background-color);
+}
+
+
+/*FOOTER*/
+
+.footer{
+  grid-area: footer;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--third-color);
+  background-color: var(--first-backgroud-color);
+  font-family: 'Newsreader', serif;
+  font-size: .8rem;
+}
+
+.container-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  align-items: baseline;
+}
+
+.footer a:hover{
+  color: var(--third-color);
+}
+
+
+/*DESGLOSE DE ETIQUETAS*/
+
+a{
+    color: var(--third-color);
+    transition: all 0.3s ease-out;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+
+h2{
+  font-size: 2.2rem;
+  font-weight: bold;
+  align-items: center;
+  text-align: center; 
+  padding: 2rem;
+  color: var(--third-color);
+  font-family: 'Homemade Apple', cursive;
+  }
+
+h5 {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
+
+p {
+    line-height: 1.6;
+  }
+
+
+/*COMPONENTES*/
+
+.header > .container-header {
+    display: flex;
+    padding: auto 1rem;
+    flex-direction: row ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+
+
+.none {
+  display: none;
+}
+
+.menu-boton{
+    outline: thin solid var(--second-background-color);
+    border: none;
+    cursor: pointer;
+    background: var(--second-background-color);
+}
+
+.menu-boton svg {
+  fill: var(--first-color);
+}
+
+
+@media screen and (min-width: 768px) {
+  
+  /*TABLET*/
+
+  /*HEADER*/
+
+  .header{
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+    height: calc(var(--header-height) - 1rem);
+  }
+
+  .menu-boton{
+    display: none;
+  }
+
+  /*NAVEGACION*/
+
+
+  .navbar{
+    position: static;
+    width: auto;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: auto;
+    font-size: 18px;
+  }
+
+  .navbar a{
+    padding: 0 1rem;
+    color: rgb(146, 110, 110);
+  }
+
+  .navbar a:hover{
+    color: var(--third-color);
+    background-color: transparent;
+  }
+
+  /*MAIN*/
+
+  .words{
+    position: fixed;
+    right: 0;
+    width: 25rem;
+    margin-top: -10rem;
+  }
+
+  .main{
+    margin:auto;
+  }
+  
+  h2{
+    font-size: 50px;
+  } 
+
+  /*MAIN VINOS/CERVEZAS/COMIDAS*/
+
+  .container{
+    margin: 2rem 1rem 0 -2rem;
+  }
+
+  .card{
+    margin-top: 0;
+    width: 20vw;
+  }
+
+  /*MAIN FORMULARIO*/
+  
+  .container-form{
+    width: 65vw;
+    margin-top: 1rem;
+  }
+
+  .miFormulario textarea{
+    width: 58vw;
+  }
+
+  .container-form iframe{
+    margin-bottom: 5.5rem;
+  }
+
+
+  /*FOOTER*/
+
+  .footer{
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  
+  /*DESKTOP*/
+
+  /*HEADER*/
+
+  .header{
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+    height: calc(var(--header-height) - 1rem);
+  }
+
+  .menu-boton{
+    display: none;
+  }
+
+  /*NAVEGACION*/
+
+  .navbar{
+    position: static;
+    width: auto;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: auto;
+    font-size: 18px;
+  }
+
+  .navbar a{
+    padding: 0 1rem;
+    color: rgb(146, 110, 110);
+  }
+
+  .navbar a:hover{
+    color: var(--third-color);
+    background-color: transparent;
+  }
+
+  /*MAIN INICIO*/
+  
+  h2{
+    font-size: 50px;
+    margin: 0;
+    animation-name: desplazar;
+    animation-duration: 3s;
+    position: relative;
+  } 
+
+  @keyframes desplazar {
+  from {
+    right: 100%; 
+  }
+
+  to {
+    right: 270%;
+  }
+} 
+
+  /*MAIN VINOS/CERVEZAS/COMIDAS*/
+
+
+  /* .row{
+    margin-top: -3rem;
+  } */
+
+  .card{
+    margin-top: 2.5rem;
+    width: 17vw;
+    margin-bottom: 5rem;
+    /* margin-right: 10rem; */
+  }
+
+  /*CARDS VINOS*/
+
+  #wine4, #wine6{
+    padding-bottom: 2.8rem;
+  }
+  
+  /*CARDS CERVEZAS*/
+
+  #beer1,#beer5{
+    padding-bottom: 2.8rem;
+  }
+
+  #beer3{
+    padding-bottom: 4.5rem;
+  }
+
+  #beer7, #beer8{
+    padding-bottom: 6rem;
+  }
+
+  /*CARDS COMIDAS*/
+
+  #food2, #food3, #food6, #food7{
+    padding-bottom: 4.5rem; 
+  }
+
+  #food4, #food8{
+    padding-bottom: 2.9rem;
+  }
+
+  /*MAIN FORMULARIO*/
+  
+  .container-form{
+    width: 50vw;
+    margin-top: 1rem;
+  }
+
+  .miFormulario textarea{
+    width: 45vw;
+  }
+
+  .container-form iframe{
+    margin-bottom: 5.5rem;
+  }
+
+  /*FOOTER*/
+  
+
+  .footer{
+    font-size: 1.2rem;
+  }
+
+  .container-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    align-items: baseline;
+    width: 55vw;
+  }
+} 
